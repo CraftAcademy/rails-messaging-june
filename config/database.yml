@@ -1,0 +1,22 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: rails_messaging_development
+
+test: &test
+  <<: *default
+  database: rails_messaging_test
+
+production:
+  <<: *default
+  database: rails_messaging_production
+  username: postgres
+  password: <%= ENV['RAILS_MESSAGIN_2_DATABASE_PASSWORD'] %>
+
+cucumber:
+  <<: *test
