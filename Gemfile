@@ -14,17 +14,6 @@ gem 'devise'
 gem 'mailboxer'
 
 
-group :development, :test do
-  gem 'byebug'
-  gem 'rspec-rails'
-  gem 'cucumber-rails', '~> 1.4', '>= 1.4.2', require: false
-  gem 'database_cleaner'
-  gem 'launchy', '~> 2.4', '>= 2.4.3'
-  gem 'shoulda-matchers'
-  gem 'factory_girl_rails'
-
-end
-
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
