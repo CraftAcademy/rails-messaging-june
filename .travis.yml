@@ -1,6 +1,7 @@
 language: ruby
 cache: bundler
-ruby: 2.3.0
+rvm:
+  - 2.2.1
 deploy:
   provider: heroku
   api_key:
