@@ -36,3 +36,11 @@ Feature: Login
     And I click button "Log in"
     Then I should be on the login page
     And I should see "Invalid email or password."
+
+  Scenario: Log in with no account
+    Given I am on the login page
+    And I fill in "Email" with ""
+    And I fill in "Password" with ""
+    And I click button "Log in"
+    Then I should be on the login page
+    And I should see "Invalid email or password."
