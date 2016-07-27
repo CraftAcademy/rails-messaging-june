@@ -1,9 +1,26 @@
 language: ruby
-cache: bundler
+notifications:
+  email: false
 rvm:
-  - 2.2.1
+  - 2.3.1
+cache:
+  - bundler
+  - apt
+addons:
+  postgresql: '9.4'
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq postgresql-server-dev-9.4 libpq-dev
+before_script:
+  - bundle exec rake db:setup
 script:
+  - bundle exec cucumber
+  - bundle exec rspec
 deploy:
   provider: heroku
   api_key:
-    secure: rxV7wKzgoBYieMQWQgJWN9YkGK/1dHc5wJSmAgyS/shHj1618TjNgqXX+ibuKybI+BRrW2w+MDFMkzG6jgEld2jk4ca2+NvydhJbBRQLiBMfjKZbnhssnQJqvhFhwmeanTjA4r3DsTU0oPuRyKqQ2w163s/YpAddoiJbg5AGfjyMCnrY5dMwCCBjIyApcysuxtGFjuEGPHUssxc+B7qKcXIygvW8SDDRHfm0lkKUjvRa0U7JgjvNbfrKItUwmkopMi9Dk7tKkiN2prqKefrtoYpT2u6pAmd6n+jVYG7vRWMeWyed9SUmKbniEdOdGKQ1BUgE1sU1Dv4SNVxtaB8ynu8C2cMBHwf3QsSu8rA2lfwQ3AbnsvBJYu10kWhMI4RKed4BKSwOl18goQaX5RMpF12d2VcpioqA7cWWuMjubzT01AZdJ68kFzqY06SySvq6EVgngEBHBeGYnbSeHvqfPUqTjN/uRH+or36swsjRRnpaz/bgC/ENSuhL+Jq2otDFZvxFWnZrqBq10UAzEM9gPeRhUYzOlh6fO68WoHifZ+xe0c9Oog8i4MBti8sa3hY6qD+SS5WJnkH9USSoBfJ+oKpxgyBctjndkA2Rjgt3jSZwvNKR9RpU1UpIS8dalNusI6ySIPFFyNHlRIBo32YgL32SriJdSSpwF6DArZdNcYQ=
+    secure: "melaic7xZpEIKp1rKvjctS1ZO79Q3J3GtO5oyxQZDQf5lpfgqJ5shxl4mnBs81llPtlskztNwzCxXDE5Bd4VIAM7tMpFROeCm4Uqvrn3DdOIG1VrC4S7Opf29Px1YG1KNfkvNBNQj23uwKw/O4NihwTWqBrEOCPI3OmIbvkPf4ckX8xK9BDQUd4/zfP+e8SeMld5RB5A/Z4+5/Q1aSb0AdM/q19RuX90vO/NNEBUHC8gQvDC4Pq/h2+gmWrXMA5bYGMDZipGYkXjPSrRqCitToegKowyOhKM4ZtGHMH9X6Em0e153XAwj4xucjACx3Y85UVYMG0djZbk7fWVpd44GNuVxV3h82g1iJGYSf90JpyzCHMT1k2MNv2npwWchSHJWJ0noaHIDBd6HiAGGe6qyQmPy4UyZ5cmlcwDqL0RNgIf+vBeUEstklyVG04DzS36BYngJuPEvq4pmhcnpBqeXHvTvIhPGYE/4krmElQe1Jt5fh4gwz8DlW/jhsrA10dcWw20j/aIPmmk6POkD9yoPaYgwurP04GynegPxZRXoNGDCE0eGXapit2d5vzgEc2BUNzN2jB6B34VzMnQYiwg97u/Chbar8ORpiC13OZ+wKTGT3mhtWvDrBVDw4qDFIuhdO8IutocWIiLLp7CusoAvM0teg4OzvJX4BmTk+FwOLQ="
+  app: rails-messaging-june
+  on: master
+  run:
+    - rake db:setup
