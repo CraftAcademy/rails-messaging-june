@@ -5,8 +5,8 @@ Feature: Login
 
   Background:
     Given the following users exist
-      | Email              | Password |
-      | visitor@email.com  | password |
+      | name    | email              | password |
+      | visitor | visitor@email.com  | password |
 
   Scenario: Access the login page
     Given I am on the home page
@@ -18,6 +18,5 @@ Feature: Login
     And I fill in "Email" with "visitor@email.com"
     And I fill in "Password" with "password"
     And I click button "Log in"
-    Then show me the page
     Then I should be on the home page
     And I should see "Signed in successfully."
