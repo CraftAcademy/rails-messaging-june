@@ -55,6 +55,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webkit (1.11.1)
+      capybara (>= 2.3.0, < 2.8.0)
+      json
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -268,6 +271,8 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   byebug
+  capybara
+  capybara-webkit
   chosen-rails
   coveralls
   cucumber-rails

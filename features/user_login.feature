@@ -13,10 +13,11 @@ Feature: Login
     And I click "Login"
     Then I should be on the login page
 
-  # Scenario: Log in a user
-  #   Given I am on the login page
-  #   And I fill in "Email" with "visitor@email.com"
-  #   And I fill in "Password" with "password"
-  #   And I click on "Log in"
-  #   Then I should see "Signed in successfully."
-  #   And I should be on the home page
+  Scenario: Log in a user
+    Given I am on the login page
+    And I fill in "Email" with "visitor@email.com"
+    And I fill in "Password" with "password"
+    And I click button "Log in"
+    Then show me the page
+    Then I should be on the home page
+    And I should see "Signed in successfully."
