@@ -23,6 +23,7 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'capybara'
   gem 'capybara-webkit'
+  gem 'launchy'
 end
 
 group :development do

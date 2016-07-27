@@ -1,6 +1,7 @@
 Given(/^the following users exist$/) do |table|
   table.hashes.each do |user|
-    User.create(email: user[:email],
+    User.create(name: user[:name],
+                email: user[:email],
                 password: user[:password])
   end
 end
