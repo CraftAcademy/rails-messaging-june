@@ -28,3 +28,11 @@ Feature: Login
     And I click button "Log in"
     Then I should be on the login page
     And I should see "Invalid email or password."
+
+  Scenario: Log in with wrong password
+    Given I am on the login page
+    And I fill in "Email" with "visitor@email.com"
+    And I fill in "Password" with "wrongpassword"
+    And I click button "Log in"
+    Then I should be on the login page
+    And I should see "Invalid email or password."
