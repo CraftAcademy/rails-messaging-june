@@ -13,6 +13,8 @@
 /tmp
 .byebug_history
 
+# Ignore coverage files
+/coverage/*
 
 # OSX files
 .DS_Store
@@ -24,6 +26,3 @@
 .idea/dictionaries
 .idea/vcs.xml
 .idea/jsLibraryMappings.xml
-
-
-
