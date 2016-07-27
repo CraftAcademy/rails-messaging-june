@@ -1,6 +1,6 @@
 Feature: Login
   As a user
-  to be able to access my account
+  To be able to access my account
   I have to be able to login
 
   Background:
@@ -20,3 +20,11 @@ Feature: Login
     And I click button "Log in"
     Then I should be on the home page
     And I should see "Signed in successfully."
+
+  Scenario: Log in with wrong email
+    Given I am on the login page
+    And I fill in "Email" with "wrong@mail.com"
+    And I fill in "Password" with "password"
+    And I click button "Log in"
+    Then I should be on the login page
+    And I should see "Invalid email or password."
