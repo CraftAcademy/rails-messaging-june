@@ -21,6 +21,9 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'byebug', platform: :mri
   gem 'coveralls', require: false
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'launchy'
 end
 
 group :development do
