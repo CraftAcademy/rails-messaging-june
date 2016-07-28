@@ -33,3 +33,15 @@ Feature: Sign up
     Then I should be on the signup error page
     And I should see "Name has already been taken"
     And I should see "Email has already been taken"
+
+  Scenario: Create a user account when input fields are blank
+    Given I am on the signup page
+    And I fill in "Name" with ""
+    And I fill in "Email" with ""
+    And I fill in "Password" with ""
+    And I fill in "Password confirmation" with ""
+    And I click button "Create"
+    Then I should be on the signup error page
+    And I should see "Email can't be blank"
+    And I should see "Password can't be blank"
+    And I should see "Name can't be blank"
