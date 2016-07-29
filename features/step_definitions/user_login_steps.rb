@@ -10,7 +10,7 @@ Given(/^I am on the home page$/) do
   visit root_path
 end
 
-Given(/^I click "([^"]*)"$/) do |link|
+And(/^I click on "([^"]*)"$/) do |link|
   click_link_or_button link
 end
 
