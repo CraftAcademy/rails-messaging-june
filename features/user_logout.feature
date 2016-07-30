@@ -9,14 +9,11 @@ Feature: Account Logout
       | visitor | visitor@email.com  | password |
 
   Scenario: Log out from an account
-    Given I am not logged in
-    When I am on the login page
+    Given I am on the login page
     And I fill in "Email" with "visitor@email.com"
     And I fill in "Password" with "password"
     And I click button "Log in"
     Then I should be on the home page
-    When I click on "Inbox"
-    Then I should be on the inbox page
     And I should see the "Logout" link
     When I click on "Logout"
     Then I should be on the home page
