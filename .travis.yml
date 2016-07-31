@@ -14,8 +14,7 @@ before_install:
 before_script:
   - bundle exec rake db:setup
 script:
-  - bundle exec cucumber
-  - bundle exec rspec
+  - bundle exec rake test_with_coveralls
 deploy:
   provider: heroku
   api_key:
