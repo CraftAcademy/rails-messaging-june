@@ -1,18 +1,16 @@
 Given(/^I am on the "([^"]*)" page$/) do |pagename|
-  if pagename == "signup"
-    path = new_user_registration_path
-  elsif pagename == "home"
-    path = root_path
-  end
-  visit path
+  visit path(pagename)
 end
 
 Then(/^I should be on the "([^"]*)" page$/) do |pagename|
-  if pagename == "signup"
-    path = new_user_registration_path
-  elsif pagename == "home"
-    path = root_path
-  end
-  expect(page.current_path).to eq path
+  expect(page.current_path).to eq path(pagename)
 end
 
+def path(pagename)
+  case pagename
+    when "signup"
+      new_user_registration_path
+    when "home"
+      root_path
+  end
+end
