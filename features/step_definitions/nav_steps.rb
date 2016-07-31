@@ -12,5 +12,7 @@ def path(pagename)
       new_user_registration_path
     when "home"
       root_path
+    else
+      raise "Path to #{pagename} page is not specified"
   end
 end
