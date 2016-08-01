@@ -18,7 +18,7 @@ Feature: Login
     And I fill in "Email" with "visitor@email.com"
     And I fill in "Password" with "password"
     And I click button "Log in"
-    Then I should be on the home page
+    Then I should be on the "home" page
     And I should see "Signed in successfully."
 
   Scenario: Log in with wrong email
